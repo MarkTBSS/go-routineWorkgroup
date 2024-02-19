@@ -34,11 +34,7 @@ func main() {
 	// Asynchronous
 	var wg sync.WaitGroup // สร้างตัวแปร WaitGroup
 	wg.Add(3)             // เพิ่มจำนวน goroutine ที่ต้องรอใน WaitGroup
-	// ===== แบบนี้ไม่ได้เพราะอยู่นอก Scope =====
-	// go fmt.Println("Hello, world : A")
-	// wg.Done()
-	// ====================================
-	go SayA(&wg) // ส่งทางการอ้างอิง *sync.WaitGroup
+	go SayA(&wg)          // ส่งทางการอ้างอิง *sync.WaitGroup
 	go func() {
 		time.Sleep(1 * time.Second)
 		fmt.Println("B")
